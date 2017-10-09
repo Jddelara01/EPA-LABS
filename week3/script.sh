@@ -1,3 +1,8 @@
 #!/bin/bash
 
-grep "processor" /proc/cpuinfo | wc -l
+var1=`grep "processor" /proc/cpuinfo | wc -l`
+
+if [ $var1 -le 2 ]
+then
+echo "Not enough CPU, existing"
+fi
