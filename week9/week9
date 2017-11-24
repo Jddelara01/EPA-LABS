@@ -1,0 +1,13 @@
+TO GO TO ROOT
+su -
+pass:rootpasswd
+NB. never work on root
+
+INSTALL sysstat amd gcc-c++
+dnf install sysstat and gcc-c++
+
+TO GET SYSTEM INFORMATION AFTER 10 SECS in JSON FORMAT
+mpstat 10 1 -o JSON | jq '.sysstat'
+
+TO GET THE BUSY TIME AFTER 10SECS
+mpstat 10 1 -o JSON | jq '100.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle'
